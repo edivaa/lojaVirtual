@@ -55,10 +55,9 @@ namespace Quiron.LojaVirtual.UnitTest
       
             //Assert
             Assert.AreEqual(
-                    @"<a class=""btn-defaul"" href=""Pagina1"">1<a>"
-                   +@"<a class=""btn-defaul btn-primary selected"" href=""Pagina1"">2<a>"
-                   + @"<a class=""btn-defaul"" href=""Pagina3"">3<a>", resultado.ToString()
-
+                    @"<a class=""btn-default"" href=""Pagina1"">1<a>"
+                   +@"<a class=""btn-default btn-primary selected"" href=""Pagina2"">2<a>"
+                   +@"<a class=""btn-default"" href=""Pagina3"">3<a>", resultado.ToString()
                 );
         }
 
