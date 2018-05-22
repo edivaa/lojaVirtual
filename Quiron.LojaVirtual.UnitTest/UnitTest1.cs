@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Linq;
+using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Quiron.LojaVirtual.Web.HtmlHelpers;
+using Quiron.LojaVirtual.Web.Models;
 
 namespace Quiron.LojaVirtual.UnitTest
 {
@@ -30,5 +33,44 @@ namespace Quiron.LojaVirtual.UnitTest
             CollectionAssert.AreEqual(resultado.ToArray(), teste);
 
         }
+
+
+        [TestMethod]
+        public void TestarSePaginacaoEstaSendoGeradaCorretamente()
+        {
+            HtmlHelper html = null;
+            Paginacao paginacao = new Paginacao
+            {
+                PaginaAtual = 2,
+                ItensPorPagina = 10,
+                ItensTotal = 7
+
+            };
+
+            Func<int, string> paginaUrl = i => "Pagina" + i;
+
+            MvcHtmlString resultado = html.PageLinks(paginacao, paginaUrl);
+
+
+
+            //Assert  
+            //Assert.AreEqual(/*Teste para 3 pagianas*/
+            //       @"<a class=""btn btn-default"" href=""Pagina1"">1</a>"
+            //      +@"<a class=""btn btn-default btn-primary selected"" href=""Pagina2"">2</a>"
+            //      +@"<a class=""btn btn-default"" href=""Pagina3"">3</a>.", resultado.ToString()
+            //   );
+
+            //<a class="btn btn-default" href="Pagina1">1</a>
+            //<a class="btn btn-default btn-primary Selected" href="Pagina2">2</a>
+            //<a class="btn btn-default" href="Pagina3">3</a>.
+
+            Assert.AreEqual(/*Teste para 1 pagianas*/
+                   @"<a class=""btn btn-default"" href=""Pagina1"">1</a>"
+                   , resultado.ToString()
+               );
+
+
+        }
+
     }
 }
