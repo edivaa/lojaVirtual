@@ -22,7 +22,7 @@ namespace Quiron.LojaVirtual.Web.Controllers
             ProdutosViewModel model = new ProdutosViewModel
             {
                 Produtos = _produtosRepositorio.Produtos
-                    .Where(p =>p.Categoria == null || p.Categoria == categoria)
+                   // .Where(p =>p.Categoria == null || p.Categoria == categoria)
                     .OrderBy(p => p.Descricao)
                     .Skip((pagina - 1) * ProdutosPorPagina)
                     .Take(ProdutosPorPagina),
