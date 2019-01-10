@@ -1,6 +1,6 @@
 ﻿@model System.Collections.Generic.IEnumerable<string>
 
-@Html.ActionLink("Todos os produtos","ListaProdutos","Vitrine",null, new { @class="btn btn-block btn-default btn-lg"})
+@Html.ActionLink("Todos os produtos","ListaProdutos","Vitrine",null, new { @class= "btn btn-block btn-default btn-outline-secondary" })
 
 @foreach (var link in Model)
 {
@@ -12,8 +12,8 @@
     pagina = 1
 
 }, new {
-    @class = "btn btn-block btn-default btn-lg"
-    +(link==ViewBag.CategoriaSelecionada? "btn-primary":"")
+    @class = "btn btn-block btn-default btn-outline-secondary"
+    + (link==ViewBag.CategoriaSelecionada? "btn-primary":"")
 })
 
 
