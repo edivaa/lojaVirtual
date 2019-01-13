@@ -41,7 +41,7 @@ namespace Quiron.LojaVirtual.UnitTest
             HtmlHelper html = null;
             Paginacao paginacao = new Paginacao
             {
-                PaginaAtual = 2,
+                PaginaAtual = 1,
                 ItensPorPagina = 10,
                 ItensTotal = 7
 

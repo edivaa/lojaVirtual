@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Quiron.LojaVirtual.Dominio.Entidades
 {
     
-    class Carrinho
+    public class Carrinho
     {
         private readonly List<ItemCarrinho> _itemCarrinho = new List<ItemCarrinho>();
 
@@ -40,6 +40,16 @@ namespace Quiron.LojaVirtual.Dominio.Entidades
             return _itemCarrinho.Sum(e => e.Produto.Preco * e.Quantidade);
         }
 
+        public void LimparCarrinho()
+        {
+
+            _itemCarrinho.Clear();
+        }
+
+        public IEnumerable <ItemCarrinho> ItensCarrinho
+        {
+            get { return _itemCarrinho; }
+        }
         
     }
 
